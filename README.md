@@ -37,7 +37,7 @@ A Clojure application to produce endless text to kafka.
 
     $docker run -t -i <BUILD-HASH> --broker kafka-broker:9092 --topic logs-replay
     
-    $docker run --network cljkstream_network -t -i f00987a5747e --broker kafka-broker:9092 --topic logs-replay
+    $docker run --network cljkstream_network -t -i 3b1ffe741b94 --broker kafka-broker:9092 --topic logs-replay
 
 ## License
 

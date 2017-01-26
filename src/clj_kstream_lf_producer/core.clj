@@ -5,7 +5,7 @@
     [clj-kstream-lf-producer.cli :as cli-def]
     [clj-kstream-lf-producer.to-kafka :as to-kafka]
     [clojure.tools.logging :as log]
-    [clojure.core.async :refer [>! <!! close! chan go-loop]])
+    [clojure.core.async :refer [>! <!! <! close! chan go-loop go timeout]])
   (:gen-class)
   (:import (java.security MessageDigest)))
 
@@ -38,6 +38,7 @@
    (with-open [rdr (clojure.java.io/reader (:some-text app-state))]
      (info "Read file line by line")
        (doseq [line (line-seq rdr)]
+         (Thread/sleep 500)
          (>! (:input app-state)
              {:key_id (md5 line)
               :value {:msg line}})))
