@@ -38,7 +38,7 @@
    (with-open [rdr (clojure.java.io/reader (:some-text app-state))]
      (info "Read file line by line")
        (doseq [line (line-seq rdr)]
-         (Thread/sleep 500)
+         (Thread/sleep 1000)
          (>! (:input app-state)
              {:key_id (md5 line)
               :value {:msg line}})))
